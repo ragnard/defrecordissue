@@ -1,23 +1,19 @@
 defrecordissue
 ==============
 
-Trying to understand a, to me, unexpected behaviour of clojure records.
+Minimal demonstration of a, to me, unexpected behaviour of clojure
+records.
+
 
 Usage
 =====
 
 Two different lein aliases, `aot1` and `aot2` illustrate the
-unexpected behaviour.
-
-```clojure
-{"aot1" ["do" "clean," "with-profile" "aot1" "compile"]
- "aot2" ["do" "clean," "with-profile" "aot2" "compile"]}     
-```
-
+unexpected behaviour. The both first do a `lein clean` and then
+compile either `defrecordissue.aot1` or `defrecordissue.aot2`.
 
 ```
 $ lein aot1
-Performing task 'compile' with profile(s): 'aot1'
 Compiling defrecordissue.aot1
 Exception in thread "main" java.lang.IllegalArgumentException: No implementation of method: :afn of protocol: #'defrecordissue.aprotocol/AProtocol found for class: defrecordissue.arecord.ARecord, compiling:(aot1.clj:5:1)
 	at clojure.lang.Compiler$InvokeExpr.eval(Compiler.java:3463)
@@ -54,13 +50,10 @@ Caused by: java.lang.IllegalArgumentException: No implementation of method: :afn
 	at clojure.lang.Compiler$InvokeExpr.eval(Compiler.java:3458)
 	... 25 more
 Compilation failed: Subprocess failed
-Error encountered performing task 'compile' with profile(s): 'aot1'
-Suppressed exit
 ```
 
 
 ```
 $ lein aot2
-Performing task 'compile' with profile(s): 'aot2'
 Compiling defrecordissue.aot2
 ```
