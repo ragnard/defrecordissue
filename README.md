@@ -9,7 +9,7 @@ Usage
 =====
 
 Two different lein aliases, `aot1` and `aot2` illustrate the
-unexpected behaviour. The both first do a `lein clean` and then
+unexpected behaviour. They both first do a `lein clean` and then
 compile either `defrecordissue.aot1` or `defrecordissue.aot2`.
 
 ```
@@ -50,10 +50,12 @@ Caused by: java.lang.IllegalArgumentException: No implementation of method: :afn
 	at clojure.lang.Compiler$InvokeExpr.eval(Compiler.java:3458)
 	... 25 more
 Compilation failed: Subprocess failed
+$
 ```
 
 
 ```
 $ lein aot2
 Compiling defrecordissue.aot2
+$
 ```
