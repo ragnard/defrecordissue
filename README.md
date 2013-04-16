@@ -10,7 +10,7 @@ Usage
 
 Two different lein aliases, `aot1` and `aot2` illustrate the
 unexpected behaviour. They both first do a `lein clean` and then
-compile either `defrecordissue.aot1` or `defrecordissue.aot2`.
+compile either [`defrecordissue.aot1`](https://github.com/ragnard/defrecordissue/blob/master/src/defrecordissue/aot1.clj) or [`defrecordissue.aot2`](https://github.com/ragnard/defrecordissue/blob/master/src/defrecordissue/aot2.clj).
 
 ```
 $ lein aot1
