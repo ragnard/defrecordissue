@@ -4,18 +4,17 @@ defrecordissue
 Minimal demonstration of a, to me, unexpected behaviour of clojure
 records.
 
-
 Usage
 =====
 
-Two different lein aliases, `aot1` and `aot2` illustrate the
-unexpected behaviour. They both first do a `lein clean` and then
-compile either [`defrecordissue.aot1`](https://github.com/ragnard/defrecordissue/blob/master/src/defrecordissue/aot1.clj) or [`defrecordissue.aot2`](https://github.com/ragnard/defrecordissue/blob/master/src/defrecordissue/aot2.clj).
+The lein alias, `consumer` illustrates the unexpected behaviour. It
+first does a `lein clean` and then compiles 
+[`defrecordissue.aot1`](https://github.com/ragnard/defrecordissue/blob/more-realistic/src/defrecordissue/consumer.clj)
 
 ```
-$ lein aot1
-Compiling defrecordissue.aot1
-Exception in thread "main" java.lang.IllegalArgumentException: No implementation of method: :afn of protocol: #'defrecordissue.aprotocol/AProtocol found for class: defrecordissue.arecord.ARecord, compiling:(aot1.clj:5:1)
+$ lein consumer
+Compiling defrecordissue.consumer
+Exception in thread "main" java.lang.IllegalArgumentException: No implementation of method: :afn of protocol: #'defrecordissue.aprotocol/AProtocol found for class: defrecordissue.arecord.ARecord, compiling:(consumer.clj:4:1)
 	at clojure.lang.Compiler$InvokeExpr.eval(Compiler.java:3463)
 	at clojure.lang.Compiler.compile1(Compiler.java:7153)
 	at clojure.lang.Compiler.compile(Compiler.java:7219)
@@ -44,18 +43,12 @@ Exception in thread "main" java.lang.IllegalArgumentException: No implementation
 	at clojure.main.main(main.java:37)
 Caused by: java.lang.IllegalArgumentException: No implementation of method: :afn of protocol: #'defrecordissue.aprotocol/AProtocol found for class: defrecordissue.arecord.ARecord
 	at clojure.core$_cache_protocol_fn.invoke(core_deftype.clj:541)
-	at defrecordissue.aprotocol$fn__40$G__35__45.invoke(aprotocol.clj:5)
-	at clojure.lang.AFn.applyToHelper(AFn.java:161)
+	at defrecordissue.aprotocol$fn__41$G__36__46.invoke(aprotocol.clj:5)
+	at defrecordissue.aprotocol$some_public_fn.invoke(aprotocol.clj:14)
+	at clojure.lang.AFn.applyToHelper(AFn.java:159)
 	at clojure.lang.AFn.applyTo(AFn.java:151)
 	at clojure.lang.Compiler$InvokeExpr.eval(Compiler.java:3458)
 	... 25 more
 Compilation failed: Subprocess failed
-$
-```
-
-
-```
-$ lein aot2
-Compiling defrecordissue.aot2
 $
 ```

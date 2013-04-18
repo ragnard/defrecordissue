@@ -8,3 +8,7 @@
 (extend-protocol AProtocol
   ARecord
   (afn [this] 42))
+
+(defn some-public-fn
+  []
+  (afn (defrecordissue.arecord/make-record)))
